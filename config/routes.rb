@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#accueil'
-  get 'pages/boutique'
-  get 'pages/contact'
-  get 'pages/about'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'pages/boutique', to: 'pages#boutique', as: :boutique
+  get 'pages/contact', to: 'pages#contact', as: :contact
+  get 'pages/about', to: 'pages#about', as: :about
 end
