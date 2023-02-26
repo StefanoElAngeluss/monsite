@@ -1,10 +1,22 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @article %>
-
-<div>
-  <%= link_to "Edit this article", edit_article_path(@article) %> |
-  <%= link_to "Back to articles", articles_path %>
-
-  <%= button_to "Destroy this article", @article, method: :delete %>
+<div class="container mt-5">
+<div id="<%= dom_id @article %>">
+  <div class="card mb-3">
+    <div class="card-header d-flex justify-content-between">
+      <h5 class="card-title"><%= @article.titre %></h5>
+      <small class="mt-1">
+        Posté par : <%= link_to @article.user.username, profile_path(@article.user), style:"text-decoration:none;font-weight: bold;color:green;" %>
+      </small>
+      <h6 class="mt-1 badge bg-secondary rounded-pill text-light"><%= pluralize(@article.views, "vue") %></h6>
+      <%= link_to "Retour aux articles", articles_path, class: "btn btn-sm btn-primary" %>
+    </div>
+    <img src="https://picsum.photos/id/237/500/400" class="img-fluid rounded-start" alt="..." style="height: 540px;background-size:cover;">
+    <div class="card-body">
+      <p class="card-text"><p class="card-text"><%= @article.contenu %></p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <div class="card-footer d-flex justify-content-between">
+        <%= link_to "Edit this article", edit_article_path(@article), class: "btn btn-sm btn-success" %>
+        <%= button_to "Destroy this article", @article, method: :delete, class: "btn btn-sm btn-danger" %>
+      </div>
+    </div>
+  </div>
 </div>
