@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+.navbar-nav li > a:hover, .navbar-nav li > a:focus {
+	color: #fff;
+}
+.link:hover, .link:focus {
+	color: #fff;
+}
